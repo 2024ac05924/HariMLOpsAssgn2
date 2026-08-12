@@ -23,3 +23,5 @@ mlruns/
 
 # Kaggle/downloaded archives
 *.zip
+
+github-ci-key.json

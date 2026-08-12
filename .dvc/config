@@ -1,0 +1,4 @@
+[core]
+    remote = gcsremote
+['remote "gcsremote"']
+    url = gs://famous-hull-499314-j5-dvc-985530495653/dvcstore

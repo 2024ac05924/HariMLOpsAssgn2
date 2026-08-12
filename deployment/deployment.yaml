@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cats-dogs-api
+  labels:
+    app: cats-dogs-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cats-dogs-api
+  template:
+    metadata:
+      labels:
+        app: cats-dogs-api
+    spec:
+      imagePullSecrets:
+        - name: artifact-registry-secret
+      containers:
+        - name: cats-dogs-api
+          image: asia-south1-docker.pkg.dev/famous-hull-499314-j5/harimlopsassgn2/harimlopsassgn2-api:slim
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            timeoutSeconds: 5
+            failureThreshold: 3

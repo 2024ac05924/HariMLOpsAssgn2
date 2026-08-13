@@ -52,7 +52,7 @@ class CatsDogsDataset(Dataset):
     def __getitem__(self, index):
         row = self.data.iloc[index]
 
-        image_path = Path(row["image_path"])
+        image_path = Path(row["image_path"].replace("\\", "/"))
         label = int(row["label"])
 
         image = Image.open(image_path).convert("RGB")

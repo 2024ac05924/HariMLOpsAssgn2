@@ -21,7 +21,7 @@ from src.model import SimpleCNN
 RANDOM_STATE = 42
 BATCH_SIZE = 32
 LEARNING_RATE = 0.001
-EPOCHS = 3
+EPOCHS = 4
 NUM_CLASSES = 2
 
 TRAIN_CSV = "data/processed/train.csv"

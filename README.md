@@ -12,7 +12,11 @@ The assignment uses a Cats vs Dogs image classification dataset. Images are prep
 The assignment requires an end-to-end workflow covering model development, packaging, CI, deployment and monitoring. 
 ________________________________________
 2. MLOps Workflow
-![alt text](image-3.png)
+## MLOps Workflow
+
+The following diagram summarizes the end-to-end MLOps workflow implemented for the Cats vs Dogs classification project.
+
+![MLOps Workflow](image-3.png)
  ________________________________________
 3. Technologies Used
 Component	Technology
@@ -48,7 +52,6 @@ Validation Accuracy: 0.7672
 The trained model was saved as:
 models/model.pt
 The model artifact is versioned using DVC.
- ![alt text](image-4.png)
 ___________________________________
 5. DVC Model Versioning
 DVC is used to track the trained model artifact.
@@ -64,7 +67,7 @@ dvc status --cloud
 Result:
 Cache and remote 'gcsremote' are in sync.
 ________________________________________
-___![alt text](image-5.png)_______________________________
+
 6. Experiment Tracking
 MLflow was used during model training to record the training run.
 The 4-epoch training run generated an MLflow Run ID:
@@ -75,7 +78,6 @@ artifacts/confusion_matrix.png
 artifacts/model.pt
 ________________________________________
 Screenshot – MLflow
- ![alt text](image-6.png)
  ________________________________________
 7. REST API
 The trained CNN model is exposed through a FastAPI inference service.
@@ -102,7 +104,6 @@ Example:
   "latency_ms": 35.6
 }
 Screenshot– Swagger
-![alt text](image-7.png)
   ________________________________________
 8. Automated Testing
 Pytest tests cover:
@@ -121,7 +122,6 @@ tests/test_model.py
 tests/test_preprocessing.py
 ________________________________________
 Screenshot– Pytest
-![alt text](image-8.png)
  ________________________________________
 9. CI/CD with GitHub Actions
 GitHub Actions is used to automate the CI/CD workflow.
@@ -137,11 +137,9 @@ The workflow performs activities including:
 9.	Perform deployment validation 
 The successful workflow demonstrates automated movement from a source-code change to a deployable container image.
 Screenshot– GitHub Actions
-  ![alt text](image-9.png)
 
 Screenshot- Individual workflow steps showing tests/build/image push
- ![alt text](image-10.png)
- ________________________________________
+  ________________________________________
 10. Docker Containerization
 The FastAPI inference service is packaged into a Docker image.
 The image is published to Google Artifact Registry.
@@ -152,7 +150,6 @@ a9cfa0bb75b24b1416f35f148cd704f660b39f46
 The image was successfully pushed to Artifact Registry.
 
 Screenshot – Docker/Artifact Registry
-![alt text](image-11.png)
 ________________________________________
 11. Kubernetes Deployment
 The inference service is deployed to a local Kubernetes cluster.
@@ -176,7 +173,7 @@ cats-dogs-api-5788ff889d-nhzgz   1/1   Running
 ________________________________________
 Screenshot– Kubernetes
   Screenshot– Kubernetes Deployment image
- __![alt text](image-12.png)______________________________________
+_____________________________________
 12. Health Check
 The deployed API was verified using:
 curl.exe http://localhost:8002/health
@@ -188,7 +185,6 @@ Response:
 This confirms that the deployed inference service is running and the trained model has been loaded successfully.
 ________________________________________
 Screenshot – Health Check
-![alt text](image-13.png)
  ________________________________________
 13. Monitoring 
 The inference API implements application-level monitoring using the Prometheus Python client.
@@ -231,9 +227,7 @@ Requests ≤ 50 ms	9/11
 Requests ≤ 75 ms	11/11
 ________________________________________
 Screenshot – Prometheus Metrics
- ![alt text](image-14.png)
 Screenshot – Logging 
-![alt text](image-15.png) 
 ________________________________________
 15. Post-Deployment Model Performance Tracking
 A small set of real test images was sent to the deployed inference service.
@@ -254,8 +248,6 @@ This is a small post-deployment validation sample, not the overall model accurac
 The results show that the deployed model correctly classified all six selected validation images.
 ________________________________________
 Screenshot– Post-Deployment Predictions
-![alt text](image-16.png)
-![alt text](image-17.png)
   ________________________________________
 16. Final Git Status
 All monitoring changes were committed and pushed.

@@ -18,7 +18,7 @@ spec:
         - name: artifact-registry-secret
       containers:
         - name: cats-dogs-api
-          image: asia-south1-docker.pkg.dev/famous-hull-499314-j5/harimlopsassgn2/harimlopsassgn2-api:ecd87370d4a5c7cca6b34a235335ec87340530a5
+          image: asia-south1-docker.pkg.dev/famous-hull-499314-j5/harimlopsassgn2/harimlopsassgn2-api:a9cfa0bb75b24b1416f35f148cd704f660b39f46
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
